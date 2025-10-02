@@ -136,6 +136,20 @@ Here is a comprehensive example:
       }
     },
     {
+      "name": "bedrock",
+      "api_base_url": "https://bedrock-runtime.us-east-1.amazonaws.com",
+      "api_key": "not-used-with-bedrock",
+      "aws_profile": "production",
+      "aws_region": "us-east-1",
+      "models": [
+        "anthropic.claude-3-5-sonnet-20241022-v2:0",
+        "anthropic.claude-3-5-haiku-20241022-v1:0"
+      ],
+      "transformer": {
+        "use": ["bedrock"]
+      }
+    },
+    {
       "name": "volcengine",
       "api_base_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
       "api_key": "sk-xxx",
@@ -295,6 +309,7 @@ Transformers allow you to modify the request and response payloads to ensure com
 **Available Built-in Transformers:**
 
 - `Anthropic`:If you use only the `Anthropic` transformer, it will preserve the original request and response parameters(you can use it to connect directly to an Anthropic endpoint).
+- `bedrock`: Adapts requests/responses for AWS Bedrock's Anthropic Claude models with AWS Signature V4 authentication. Supports custom AWS profiles via `aws_profile` and regions via `aws_region` in provider config.
 - `deepseek`: Adapts requests/responses for DeepSeek API.
 - `gemini`: Adapts requests/responses for Gemini API.
 - `openrouter`: Adapts requests/responses for OpenRouter API. It can also accept a `provider` routing parameter to specify which underlying providers OpenRouter should use. For more details, refer to the [OpenRouter documentation](https://openrouter.ai/docs/features/provider-routing). See an example below:

@@ -272,6 +272,7 @@ Transformers 允许您修改请求和响应负载，以确保与不同提供商 
 **可用的内置 Transformer：**
 
 -   `Anthropic`: 如果你只使用这一个转换器，则会直接透传请求和响应(你可以用它来接入其他支持Anthropic端点的服务商)。
+-   `bedrock`: 适配 AWS Bedrock 的 Anthropic Claude 模型，使用 AWS Signature V4 身份验证。
 -   `deepseek`: 适配 DeepSeek API 的请求/响应。
 -   `gemini`: 适配 Gemini API 的请求/响应。
 -   `openrouter`: 适配 OpenRouter API 的请求/响应。它还可以接受一个 `provider` 路由参数，以指定 OpenRouter 应使用哪些底层提供商。有关更多详细信息，请参阅 [OpenRouter 文档](https://openrouter.ai/docs/features/provider-routing)。请参阅下面的示例：
